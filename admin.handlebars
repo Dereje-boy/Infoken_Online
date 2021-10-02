@@ -1,0 +1,166 @@
+<link rel="stylesheet" href="/styles/admin.css">
+<link rel="stylesheet" href="/styles/admin_bottom.css">
+<div class="Admin-container">
+    <div class="Top-container">
+        <a class="left-top" href="/">
+            <img src="/Images/Stages%20and%20others/infoken%20Logo.jpg">
+            Infoken App
+        </a>
+        <div class="right-top">
+            <div class="admin-names">
+                <h1 style="color: blue">{{admin_username}}</h1>
+                <h2>{{admin_fullname}}</h2>
+            </div>
+            <img class="admin-photo"
+                 src="/Images/People%20Face%20Photo/face%204.jpg">
+            <div class="logout-container">
+                <a href="logout">
+                    <h1>Logout</h1>
+                </a>
+            </div>
+        </div>
+
+    </div>
+    <div class="Bottom-container">
+        <div class="left-bottom">
+            <div class="search-filter">
+                <div class="show-database-container">
+                    <button class="databases">Show Databases</button>
+                    <div class="databases-container">
+                        <button class="students-button">Students</button>
+                        <button class="books-button">Books</button>
+                        <button class="rents-button">Rents</button>
+                        <button class="admins-button">Admins</button>
+                    </div>
+                </div>
+
+                <input class="search-bar" type="text" placeholder="search rents.....">
+                <button class="search_button">
+                    <img src="/Images/search.png">
+                </button>
+                <button class="return-button">
+                    Return
+                </button>
+            </div>
+
+            <div class="table-container" >
+
+                <table class="table" >
+                    <tr>
+                        <th>No.</th>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Student ID</th>
+                        <th>Department</th>
+                        <th>Gender</th>
+                        <th>Password</th>
+                        <th>Check</th>
+                    </tr>
+
+                    {{#each students}}
+                        <tr>
+                            <td>{{_id}}</td>
+                            <td>{{firstname}}</td>
+                            <td>{{lastname}}</td>
+                            <td>{{studentID}}</td>
+                            <td>{{department}}</td>
+                            <td>{{gender}}</td>
+                            <td>{{password}}</td>
+                            <td class="delete-student"><input type="button" value="Delete Student"></td>
+                        </tr>
+                    {{/each}}
+
+                </table>
+<!--                Books table-->
+
+                <table class="book-table" class="table" hidden>
+                    <tr>
+                        <th>No.</th>
+                        <th>Title</th>
+                        <th>Category</th>
+                        <th>Quantity</th>
+                        <th>Author</th>
+                        <th>Registrar ID</th>
+                    </tr>
+                </table>
+
+                <table class="admin-table" class="table" hidden>
+                    <tr>
+                        <th>No.</th>
+                        <th>Firstname</th>
+                        <th>Lastname</th>
+                        <th>Username</th>
+                        <th>Password</th>
+                        <th>IA_ID</th>
+                    </tr>
+                </table>
+
+                <table class="rent-table" class="table">
+                </table>
+
+            </div>
+            <div class="new">
+                <form action="/students/new" method="get">
+                    <button class="new-student">
+                        <h3>New Student</h3>
+                    </button>
+                </form>
+                <form action="/books/new">
+                    <button class="new-book">
+                        <h3>New Book</h3>
+                    </button>
+                </form>
+                <form action="/rents/new">
+                    <button class="new-rent">
+                        <h3>New Rent</h3>
+                    </button>
+                </form>
+            </div>
+
+        </div>
+        <div class="right-bottom">
+
+            <div class="info-from-table">
+                <div class="firstname">
+                    <h3>Firstname</h3>
+                    <input type="text" name="firstname"
+                           placeholder="firstname" autocomplete="off" readonly>
+                </div>
+                <div class="lastname">
+                    <h3>Lastname</h3>
+                    <input type="text" name="lastname"
+                           placeholder="boy" autocomplete="off" readonly>
+                </div>
+                <div class="studentID">
+                    <h3>StudentID</h3>
+                    <input type="text" name="studentID"
+                           placeholder="Ramit/300/10" autocomplete="off" readonly>
+                </div>
+                <div class="department">
+                    <h3>Department</h3>
+                    <input type="text" name="department"
+                           placeholder="Surveying" autocomplete="off" readonly>
+                </div>
+                <div class="gender">
+                    <h3>Gender</h3>
+                    <input type="text" name="gender"
+                           placeholder="Male" autocomplete="off" readonly >
+                </div>
+                <div class="dorm">
+                    <h3>Dorm</h3>
+                    <input type="text" name="dorm"
+                           placeholder="Block 310 - 110" autocomplete="off" readonly >
+                </div>
+                <div class="buttons">
+                    <button class="edit-mode-button">Edit Mode is OFF</button>
+                    <button class="delete-student-button">Delete Student</button>
+                    <button class="update-student-button" disabled>Update Student</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<script src="/scripts/admin.js"></script>
+<script src="/scripts/adminTables.js"></script>
